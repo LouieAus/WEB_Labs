@@ -231,3 +231,40 @@ echo count($arr7), "\n";
 
 echo $arr7[count($arr7) - 1], "\n";
 echo $arr7[count($arr7) - 2], "\n";
+
+
+// ======== Задание 18 ========
+function checkSum($num_a, $num_b)
+{
+    if ($num_a + $num_b > 10)
+        return true;
+    else
+        return false;
+}
+
+function checkEqual($num_a, $num_b)
+{
+    if ($num_a == $num_b)
+        return true;
+    else
+        return false;
+}
+
+$test = rand(0, 1);
+if (!$test) echo "верно";
+
+$age = rand(0, 120);
+if (($age < 10) || ($age > 99)) {
+    echo "\nЧисло $age либо меньше 10, либо больше 99\n";
+}
+else {
+    $age_sum = array_sum(str_split($age));
+    if ($age_sum <= 9)
+        echo "\nСумма цифр числа $age равна $age_sum и однозначна\n";
+    else
+        echo "\nСумма цифр числа $age равна $age_sum и двузначна\n";
+}
+
+$arr7 = [12, 3, 5];
+if (count($arr7) == 3)
+    echo array_sum($arr7), "\n";
