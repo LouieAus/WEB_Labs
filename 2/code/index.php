@@ -34,3 +34,14 @@ echo $days_per_languages, "\n";
 
 // ======== Задание 12 ========
 echo 8**2, "\n";
+
+
+// ======== Задание 13 ========
+$my_num = 99;
+$answer = $my_num;
+$answer += 2;
+$answer *= 2;
+$answer -= 2;
+$answer /= 2;
+$answer -= $my_num;
+echo $answer, "\n";
