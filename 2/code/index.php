@@ -131,3 +131,14 @@ for ($i = 0; $i != count($arr4); $i++)
     }
 }
 echo $result, "\n";
+
+
+// ======== Задание 15 ========
+function printStringReturnNumber()
+{
+    echo "This is working function!\n";
+    return 99;
+}
+
+$my_num = printStringReturnNumber();
+echo $my_num, "\n";
