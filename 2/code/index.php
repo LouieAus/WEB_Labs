@@ -142,3 +142,47 @@ function printStringReturnNumber()
 
 $my_num = printStringReturnNumber();
 echo $my_num, "\n";
+
+
+// ======== Задание 16 ========
+function increaseEnthusiasm($string)
+{
+    return $string . '!';
+}
+echo increaseEnthusiasm("Hello"), "\n";
+
+function  repeatThreeTimes($string)
+{
+    return $string . $string . $string;
+}
+echo repeatThreeTimes("PHP_"), "\n";
+
+echo increaseEnthusiasm(repeatThreeTimes("CPP_")), "\n";
+
+function cut($string, $q = 10)
+{
+    return substr($string, 0, $q);
+}
+
+$arr5 = [7, 12, 55, 9, -5, 0, 3, 31];
+function printArray($array, $offset = 0)
+{
+    if ($offset < count($array)) {
+        echo $array[$offset], "\t";
+        printArray($array, ++$offset);
+    }
+}
+printArray($arr5);
+
+function countDigits($number)
+{
+    $num_sum = array_sum(str_split($number));
+
+    $result = 0;
+    if ($num_sum > 9)
+        $result = countDigits($num_sum);
+    else
+        $result = $num_sum;
+
+    return $result;
+}
