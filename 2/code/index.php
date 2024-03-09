@@ -268,3 +268,83 @@ else {
 $arr7 = [12, 3, 5];
 if (count($arr7) == 3)
     echo array_sum($arr7), "\n";
+
+
+// ======== Задание 19 ========
+for ($i = 1; $i != 21; $i++)
+    echo str_repeat('x', $i), "\n";
+
+
+// ======== Задание 20 ========
+$arr8 = [12, 3, 5, 77, 89, -8, 9, 10];
+
+function countMean(&$array, $offset = 0, $sum = 0)
+{
+    $result = 0;
+
+    if ($offset < count($array))
+    {
+        $sum += $array[$offset];
+        $result = countMean($array, ++$offset, $sum);
+    }
+    else
+    {
+        $result = $sum / count($array);
+    }
+
+    return $result;
+}
+echo countMean($arr8), "\n";
+
+function numberSum($a, $b, $sum = 0)
+{
+    $result = 0;
+
+    if ($a != $b)
+    {
+        $sum += $a;
+        $result = numberSum(++$a, $b, $sum);
+    }
+    else
+    {
+        $result = $sum + $b;
+    }
+
+    return $result;
+}
+echo numberSum(1, 100), "\n";
+
+function getSquaredArray(&$arr, $offset = 0, &$result = [])
+{
+    if ($offset < count($arr)) {
+        $result[] = pow($arr[$offset], 2);
+        getSquaredArray($arr, ++$offset, $result);
+    }
+
+    return $result;
+}
+var_dump(getSquaredArray($arr8));
+
+function getLettersArray($offset = 0, &$result = [])
+{
+    if ($offset < 26) {
+        $result[chr(97 + $offset)] = $offset + 1;
+        getLettersArray(++$offset, $result);
+    }
+
+    return $result;
+}
+var_dump(getLettersArray());
+
+function sumSubNumbers($string, $offset = 0, &$sum = 0)
+{
+    if ($offset < strlen($string))
+    {
+        $sum += intval(substr($string, $offset, 2));
+        $offset += 2;
+        sumSubNumbers($string, $offset, $sum);
+    }
+
+    return $sum;
+}
+echo sumSubNumbers('1234567890'), "\n";
