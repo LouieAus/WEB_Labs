@@ -32,6 +32,7 @@ $days = $months * 16;
 $days_per_languages = $days / $num_languages;
 echo $days_per_languages, "\n";
 
+
 // ======== Задание 12 ========
 echo 8**2, "\n";
 
@@ -45,3 +46,48 @@ $answer -= 2;
 $answer /= 2;
 $answer -= $my_num;
 echo $answer, "\n";
+
+
+// ======== Задание 14 ========
+// Работа с %
+$a = 10;
+$b = 3;
+$remainder = $a % $b;
+
+if ($remainder == 0)
+    echo "Делится\n";
+else
+    echo "Делится с остатком $remainder\n";
+
+// Работа со степенью и корнем
+$st = pow(2, 10);
+
+$sqrt_res = sqrt(245);
+
+$arr = [4, 2, 5, 19, 13, 0, 10];
+$result = 0;
+foreach ($arr as $value)
+    $result += pow($value, 2);
+$result = sqrt($result);
+
+echo $st, "\t", $sqrt_res, "\t", $result, "\n";
+
+// Работа с функциями округления
+$sqrt_res1 = sqrt(379);
+$sqrt_round1 = round($sqrt_res1, 0);
+$sqrt_round2 = round($sqrt_res1, 1);
+$sqrt_round3 = round($sqrt_res1, 2);
+echo $sqrt_round1, "\t", $sqrt_round2, "\t", $sqrt_round3, "\n";
+
+$sqrt_res2 = sqrt(587);
+$sqrt_floor = floor($sqrt_res2);
+$sqrt_ceil = ceil($sqrt_res2);
+$sqrt_arr = ['floor' => $sqrt_floor, 'ceil' => $sqrt_ceil];
+
+// Работа с min и max
+$arr2 = [4, -2, 5, 19, -130, 0, 10];
+$min = min($arr2);
+$max = max($arr2);
+
+// Работа с рандомом
+echo rand(1, 100), "\n";
