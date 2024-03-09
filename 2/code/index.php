@@ -91,3 +91,43 @@ $max = max($arr2);
 
 // Работа с рандомом
 echo rand(1, 100), "\n";
+
+$arr_rand = [];
+for ($i = 0; $i != 10; $i++)
+    $arr_rand[] = rand();
+
+// Работа с модулем
+$a = 10; $b = 18;
+echo abs($a - $b), "\n";
+$a = -1; $b = 5;
+echo abs($a - $b), "\n";
+$a = 8; $b = -4;
+echo abs($a - $b), "\n";
+
+$arr3 = [1, 2, -1, -2, 3, -3];
+$new_arr3 = [];
+foreach ($arr3 as $value)
+    $new_arr3[] = abs($value);
+
+// Общее: делители числа
+$c = 99;
+$dividers = [];
+for ($i = 1; $i <= $c; $i++)
+    if ($c % $i == 0)
+        $dividers[] = $i;
+
+var_dump($dividers);
+
+// Общее: сумма элементов
+$arr4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+$sum = 0;
+$result = 0;
+for ($i = 0; $i != count($arr4); $i++)
+{
+    $sum += $arr4[$i];
+    if ($sum > 10) {
+        $result = $i + 1;
+        break;
+    }
+}
+echo $result, "\n";
