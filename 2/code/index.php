@@ -186,3 +186,48 @@ function countDigits($number)
 
     return $result;
 }
+
+
+// ======== Задание 17 ========
+$x_arr = [];
+for ($i = 1; $i != 20; $i++)
+    $x_arr[] = str_repeat('x', $i);
+
+function arrayFill($fill_str, $q)
+{
+    $arr_fill = [];
+    for ($i = 0; $i != $q; $i++)
+        $arr_fill[] = $fill_str;
+    return $arr_fill;
+}
+
+$pl_arr = [[1, 2, 3], [4, 5], [6]];
+$pl_sum = 0;
+foreach ($pl_arr as $line_arr)
+    foreach ($line_arr as $pl_num)
+        $pl_sum += $pl_num;
+
+$result_arr = [];
+for ($i = 0; $i != 3; $i++)
+{
+    $result_sub_arr = [];
+    for ($j = 1; $j != 4; $j++)
+        $result_sub_arr[] = $j + 3*$i;
+    $result_arr[] = $result_sub_arr;
+}
+
+$arr6 = [2, 5, 3, 9];
+$result = $arr6[0] * $arr6[1] + $arr6[2] * $arr6[3];
+echo "\n", $result, "\n";
+
+$user = ['name' => 'Ivan', 'surname' => 'Ivanov', 'patronymic' => 'Ivanovich'];
+echo $user['name'] . ' ' . $user['surname'] . ' ' . $user['patronymic'], "\n";
+
+$date = ['year' => date('Y'), 'month' => date('M'), 'day' => date('d')];
+echo $date['year'] . '-' . $date['month'] . '-' . $date['day'], "\n";
+
+$arr7 = ['a', 'b', 'c', 'd', 'e'];
+echo count($arr7), "\n";
+
+echo $arr7[count($arr7) - 1], "\n";
+echo $arr7[count($arr7) - 2], "\n";
