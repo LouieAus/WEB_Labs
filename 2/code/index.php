@@ -244,10 +244,7 @@ function checkSum($num_a, $num_b)
 
 function checkEqual($num_a, $num_b)
 {
-    if ($num_a == $num_b)
-        return true;
-    else
-        return false;
+    return ($num_a == $num_b);
 }
 
 $test = rand(0, 1);
