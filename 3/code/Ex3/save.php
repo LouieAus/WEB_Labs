@@ -13,6 +13,7 @@ if (false === isset($_POST['email'], $_POST['category'], $_POST['title'], $_POST
 $category = $_POST['category'];
 $title = $_POST['title'];
 $desc = $_POST['description'];
+$desc .= "\n".$_POST['email'];
 
 $filePath = "categories/{$category}/{$title}.txt";
 
