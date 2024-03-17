@@ -11,10 +11,11 @@
 <body>
     <div id="text_analys">
         <?php
-        $count = "0";
-        $symbols = "0";
-        $text = "";
+        $count = "0";       // Количество слов
+        $symbols = "0";     // Количество символов
+        $text = "";         // Введенный текст
 
+        // Если нажата кнопка, то обновляем переменные
         if (isset($_POST['count_button']) && isset($_POST['text']))
         {
             $text = $_POST['text'];
@@ -33,7 +34,6 @@
             <input type="submit" name="count_button" value="Count">
             <p><?=$count?> слов и <?=$symbols?> символов найдено в тексте "<?=$text?>"</p>
         </form>
-
 
     </div>
 </body>

@@ -9,12 +9,15 @@
 </head>
 <body>
     <div id="form">
+        <!-- ====== Форма добавления новых объявлений ======-->
         <form action="save.php" method="post">
             <label for="email">Email</label>
             <input type="email" name="email" required>
 
             <label for="category">Category</label>
             <?php
+                // Обработка категорий
+
                 echo '<select name="category" required>';
 
                 $dir = opendir('categories');
@@ -37,6 +40,8 @@
             <input type="submit" value="Save">
         </form>
     </div>
+
+    <!-- ====== Таблица объявлений ======-->
     <div id="table">
         <table>
             <thead>
@@ -46,16 +51,23 @@
             </thead>
             <tbody>
                 <?php
+                    // Обработка объявлений из папки categories
+
                     $dir = opendir('categories');
+
+                    // Считываем каждую папку из categories
                     while ($file = readdir($dir))
                     {
                         if (is_dir('categories/'.$file) && $file != '.' && $file != '..')
                         {
                             $subdir = opendir('categories/'.$file);
+
+                            // Проходимся по каждому объявлению
                             while ($obj = readdir($subdir))
                             {
                                 if ($obj != '.' && $obj != '..')
                                 {
+                                    // Открываем файл и считываем описание
                                     $fp = fopen('categories/'.$file.'/'.$obj, 'r');
                                     $desc = "";
                                     while ($line = fgets($fp))
@@ -64,6 +76,7 @@
                                     }
                                     fclose($fp);
 
+                                    // Выводим строчку в таблице с данными объявления
                                     echo '<tr>';
                                     echo "<td>$file</td>";
                                     echo "<td>".substr($obj, 0, strlen($obj) - 4)."</td>";
@@ -74,7 +87,6 @@
                         }
                     }
                 ?>
-                <!-- Из папок достать список и сделать через <tr> <td> </td> <td> </td> <td> </td> </tr> -->
             </tbody>
         </table>
     </div>
