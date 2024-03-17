@@ -28,6 +28,10 @@
 
             <input type="submit" name="send_data" value="Send Data">
         </form>
+
+        <form action="page.php" method="post">
+            <input type="submit" name="open_page" value="Open other page">
+        </form>
     </div>
 </body>
 </html>
