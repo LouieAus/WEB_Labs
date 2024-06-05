@@ -42,7 +42,10 @@
 				</thead>
 				<tbody>
 					<?php
-					require_once 'config.php';
+					$db_host = "db";
+					$db_user = "root";
+					$db_password = "helloworld";
+					$db_name = "web";
 
 					// ---- Подключаемся к бд ----
 					$connection = new mysqli($db_host, $db_user, $db_password, $db_name);
