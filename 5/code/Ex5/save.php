@@ -1,25 +1,29 @@
 <?php
-function redirectToHome(): void
-{
-    header('Location: /');
-    exit();
+$db_host = "db";
+$db_user = "root";
+$db_password = "helloworld";
+$db_name = "web";
+
+// ---- Подключаемся к бд ----
+$mysqli = new mysqli($db_host, $db_user, $db_password, $db_name);
+if ($mysqli->connect_error) {
+	die("Error: " . $mysqli->connect_error);
 }
 
-if (false === isset($_POST['email'], $_POST['category'], $_POST['title'], $_POST['description']))
-{
-    redirectToHome();
-}
-
+// ---- Получаем информацию ----
+$email = $_POST['email'];
 $category = $_POST['category'];
 $title = $_POST['title'];
-$desc = $_POST['description'];
-$desc .= "\n".$_POST['email'];
+$description = $_POST['description'];
 
-$filePath = "categories/{$category}/{$title}.txt";
+// ---- Записываем данные ----
+$stmt = $mysqli->prepare("INSERT INTO web.ad (email, category, title, description) VALUES (?, ?, ?, ?)");
 
-if (false === file_put_contents($filePath, $desc))
-{
-    throw new Exception("Can't put in file");
-}
-chmod($filePath, 0777);
-redirectToHome();
+$stmt->bind_param("ssss", $email, $category, $title, $description);
+$stmt->execute();
+
+$stmt->close();
+$mysqli->close();
+
+header("Location: index5.php");
+exit;
